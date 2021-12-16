@@ -1,0 +1,52 @@
+apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'war'
+
+def defaultEncoding = 'UTF-8'
+tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
+tasks.withType(GroovyCompile).each { it.groovyOptions.encoding = defaultEncoding }
+
+javadoc {
+	options.charSet = defaultEncoding
+	options.encoding = defaultEncoding
+	options.memberLevel = JavadocMemberLevel.PUBLIC
+}
+
+tasks.withType(JavaCompile) {
+	options.compilerArgs << "-parameters"
+}
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	compile fileTree(dir: 'lib',
+		includes: ['**/*.jar'],
+		excludes: ['**/*-sources.jar', '**/*-javadoc.jar'])
+
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+	providedCompile 'org.glassfish.jersey.bundles:jaxrs-ri:2.0.1'
+}
+
+defaultTasks 'clean', 'build', 'war'
+
+war {
+	archiveName = "${archivesBaseName}.war"
+}
+
+task initializeProjectFiles {
+	doLast {
+		if(file('src/main/java/Library.java').exists()) {
+			file('src/main/resources').mkdirs()
+			file('src/main/webapp/WEB-INF').mkdirs()
+			file('lib').mkdir()
+			delete "src/test"
+			delete "src/main/java/Library.java"
+		}
+	}
+}
+tasks.eclipseClasspath.dependsOn(cleanEclipseClasspath)
+tasks.eclipseClasspath.dependsOn(initializeProjectFiles)
+tasks.cleanEclipseClasspath.mustRunAfter(initializeProjectFiles)
