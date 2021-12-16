@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>ランダム献立</title>
+<script src="./index.js"></script>
+</head>
+<body>
+
+<h1>献立ガチャ</h1>
+<div>本日の気分は？</div>
+    <button type="button" name="1" onclick="random(this.name)">和食</button>
+    <button type="button" name="2" onclick="random(this.name)">洋食</button>
+    <button type="button" name="3" onclick="random(this.name)">中華</button>
+    <br>
+<!--料理名-->
+<p id="t1"></p>
+<!--作った回数-->
+<p id="t2"></p>
+<!--作ることが多い曜日-->
+<p id="t3" style="display:none;"></p>
+
+<div id="b1" style="display:none;">
+    <button  type="button"  onclick="searchm()">決定！</button>
+    　<button  type="button"  onclick="change()">違うもの</button>
+</div>
+<br>
+<br>
+<!--一か月以内のデータ-->
+<p>【傾向】</p>
+<!--ランキング-->
+<div id="t4"></div>
+<script src="./reso.js"></script>
+<br>
+<!--ジャンルごと回数-->
+<div id='t5'></div>
+<br>
+<!--おすすめ(アラートでもいい)-->
+<div id='t6'></div>
+</body>
+</html>

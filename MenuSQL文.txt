@@ -1,0 +1,179 @@
+/*　メモ
+ *　Jackson 3種類
+ *　Jetty　1種類
+ *　sqlite　1種類
+ *　jarファイルをDLしてきてビルド・パス→ライブラリ→クラスパス→外部JARの追加
+ */
+
+
+
+
+//データベース
+create database menu;
+
+//randomテーブル
+create table random(
+code Integer PRIMARY KEY AUTOINCREMENT,
+genre Integer not null,
+name text not null);
+
+//randomテーブルの内容
+insert into random(genre, name)values(1, '唐揚げ');
+insert into random(genre, name)values(1, '親子丼');
+insert into random(genre, name)values(1, '肉じゃが');
+insert into random(genre, name)values(1, '天ぷら');
+insert into random(genre, name)values(1, '照り焼き');
+insert into random(genre, name)values(1, '炊き込みご飯');
+insert into random(genre, name)values(1, 'おでん');
+insert into random(genre, name)values(1, 'すき焼き');
+insert into random(genre, name)values(1, 'ぶり大根');
+insert into random(genre, name)values(1, 'サバの味噌煮');
+insert into random(genre, name)values(1, '生姜焼き');
+insert into random(genre, name)values(1, '牛丼');
+insert into random(genre, name)values(1, 'がめ煮');
+insert into random(genre, name)values(1, 'ふろふき大根');
+insert into random(genre, name)values(1, '肉豆腐');
+insert into random(genre, name)values(1, 'イカ大根');
+insert into random(genre, name)values(1, '魚の煮付け');
+insert into random(genre, name)values(1, '豚汁');
+insert into random(genre, name)values(1, '鶏の竜田揚げ');
+insert into random(genre, name)values(1, '南蛮漬け');
+insert into random(genre, name)values(1, 'ゴーヤーチャンプルー');
+insert into random(genre, name)values(1, 'そば');
+insert into random(genre, name)values(1, '西京焼き');
+insert into random(genre, name)values(1, 'うどん');
+insert into random(genre, name)values(1, '寿司');
+insert into random(genre, name)values(1, '角煮');
+insert into random(genre, name)values(1, 'しゃぶしゃぶ');
+insert into random(genre, name)values(1, '手巻き寿司');
+insert into random(genre, name)values(1, '焼き魚');
+insert into random(genre, name)values(1, 'うな重');
+insert into random(genre, name)values(1, '焼きそば');
+insert into random(genre, name)values(1, 'ちゃんぽん');
+insert into random(genre, name)values(1, '皿うどん');
+insert into random(genre, name)values(2, 'オムライス');
+insert into random(genre, name)values(2, 'エビフライ');
+insert into random(genre, name)values(2, 'ローストビーフ');
+insert into random(genre, name)values(2, 'グラタン');
+insert into random(genre, name)values(2, 'コロッケ');
+insert into random(genre, name)values(2, 'ロールキャベツ');
+insert into random(genre, name)values(2, 'パスタ');
+insert into random(genre, name)values(2, 'ピラフ');
+insert into random(genre, name)values(2, 'ハンバーグ');
+insert into random(genre, name)values(2, 'カレーライス');
+insert into random(genre, name)values(2, 'クリームコロッケ');
+insert into random(genre, name)values(2, 'クリームシチュー');
+insert into random(genre, name)values(2, 'メンチカツ');
+insert into random(genre, name)values(2, 'ハンバーガー');
+insert into random(genre, name)values(2, 'フライドチキン');
+insert into random(genre, name)values(2, 'ミートローフ');
+insert into random(genre, name)values(2, 'キッシュ');
+insert into random(genre, name)values(2, 'テリーヌ');
+insert into random(genre, name)values(2, 'ムニエル');
+insert into random(genre, name)values(2, 'ビーフシチュー');
+insert into random(genre, name)values(2, 'ビーフストロガノフ');
+insert into random(genre, name)values(2, 'ポトフ');
+insert into random(genre, name)values(2, 'ラタトゥイユ');
+insert into random(genre, name)values(2, 'ポークソテー');
+insert into random(genre, name)values(2, 'ブイヤベース');
+insert into random(genre, name)values(2, '鶏肉のコンフィ');
+insert into random(genre, name)values(2, 'ピカタ');
+insert into random(genre, name)values(2, 'ガレット');
+insert into random(genre, name)values(2, 'アクアパッツァ');
+insert into random(genre, name)values(2, 'ピザ');
+insert into random(genre, name)values(2, 'ステーキ');
+insert into random(genre, name)values(2, 'パエリア');
+insert into random(genre, name)values(2, 'アヒージョ');
+insert into random(genre, name)values(2, 'ケバブ');
+insert into random(genre, name)values(3, 'エビチリ');
+insert into random(genre, name)values(3, '酢豚');
+insert into random(genre, name)values(3, 'かに玉');
+insert into random(genre, name)values(3, 'サンラータン');
+insert into random(genre, name)values(3, 'チャーハン');
+insert into random(genre, name)values(3, '青椒肉絲');
+insert into random(genre, name)values(3, '担々麺');
+insert into random(genre, name)values(3, '棒棒鶏');
+insert into random(genre, name)values(3, '冷やし中華');
+insert into random(genre, name)values(3, '甘酢あんかけ肉団子');
+insert into random(genre, name)values(3, '春巻き');
+insert into random(genre, name)values(3, '麻婆豆腐');
+insert into random(genre, name)values(3, '回鍋肉');
+insert into random(genre, name)values(3, 'マーボー春雨');
+insert into random(genre, name)values(3, '中華ちまき');
+insert into random(genre, name)values(3, '八宝菜');
+insert into random(genre, name)values(3, 'ワンタン');
+insert into random(genre, name)values(3, '小籠包');
+insert into random(genre, name)values(3, 'チーズタッカルビ');
+insert into random(genre, name)values(3, 'シンガポールチキンライス');
+insert into random(genre, name)values(3, 'ナシゴレン');
+insert into random(genre, name)values(3, 'トッポギ');
+insert into random(genre, name)values(3, 'ビビンバ');
+insert into random(genre, name)values(3, 'チャプチェ');
+insert into random(genre, name)values(3, 'チヂミ');
+insert into random(genre, name)values(3, 'グリーンカレー');
+insert into random(genre, name)values(3, 'ガイガパオ');
+insert into random(genre, name)values(3, 'スウドゥブチゲ');
+insert into random(genre, name)values(3, 'トムヤムクン');
+insert into random(genre, name)values(3, 'キンパ');
+insert into random(genre, name)values(3, '参鶏湯');
+insert into random(genre, name)values(3, 'ガイヤーン');
+
+//セレクト文例（和食【ジャンルコード：1】で検索）
+select genre, name from random where genre=1 order by random() limit 1;
+
+//recordテーブル作った料理の記録
+create table record(
+id Integer PRIMARY KEY AUTOINCREMENT,
+day Date DEFAULT(DATETIME('now','localtime')),
+week Integer not null,
+genre Integer not null,
+name text not null
+);
+
+//insert文例
+insert into record(day, week, genre, name) values ('2021-09-01', '4','1','豚汁');
+insert into record(day, week, genre, name) values ('2021-09-02', '5','2','アクアパッツァ');
+insert into record(day, week, genre, name) values ('2021-09-03', '6','1','しゃぶしゃぶ');
+insert into record(day, week, genre, name) values ('2021-09-04', '7','2','ラタトゥイユ');
+insert into record(day, week, genre, name) values ('2021-09-05', '1','3','参鶏湯');
+insert into record(day, week, genre, name) values ('2021-09-06', '2','3','参鶏湯');
+insert into record(day, week, genre, name) values ('2021-09-07', '3','2','鶏肉のコンフィ');
+insert into record(day, week, genre, name) values ('2021-10-17', '1','3','ナシゴレン');
+insert into record(day, week, genre, name) values ('2021-10-18', '2','3','ガイヤーン');
+insert into record(day, week, genre, name) values ('2021-10-18', '2','3','ガイヤーン');
+insert into record(day, week, genre, name) values ('2021-10-24', '1','2','ラタトゥイユ');
+insert into record(day, week, genre, name) values ('2021-10-25', '2','3','チーズタッカルビ');
+insert into record(day, week, genre, name) values ('2021-10-26', '3','2','鶏肉のコンフィ');
+insert into record(day, week, genre, name) values ('2021-10-27', '4','1','魚の煮付け');
+insert into record(day, week, genre, name) values ('2021-10-28', '5','1','ゴーヤーチャンプルー');
+insert into record(day, week, genre, name) values ('2021-10-29', '6','3','ナシゴレン');
+
+select count(*) from record where name = 'チヂミ' group by name;
+select ran.name, count(rec.name) from random as ran left join record as rec on ran.name = rec.name where ran.name =? group by ran.name;
+
+//ジャンルコード
+create table number(
+code Integer PRIMARY KEY,
+genre text not null
+);
+
+insert into number(code, genre)values(1, '和食');
+insert into number(code, genre)values(2, '洋食');
+insert into number(code, genre)values(3, '中華');
+
+
+//曜日コード
+create table weekDay(
+week Integer not null,
+kana text not null
+);
+
+insert into weekDay(week, kana)values(1, '日曜');
+insert into weekDay(week, kana)values(2, '月曜');
+insert into weekDay(week, kana)values(3, '火曜');
+insert into weekDay(week, kana)values(4, '水曜');
+insert into weekDay(week, kana)values(5, '木曜');
+insert into weekDay(week, kana)values(6, '金曜');
+insert into weekDay(week, kana)values(7, '土曜');
+
+select num.genre, count(rec.genre) from number as num left join record as rec on num.code = rec.genre where rec.day >(SELECT DATE('NOW','localtime','-1 MONTH')) group by num.code;
